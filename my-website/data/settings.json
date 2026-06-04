@@ -1,0 +1,43 @@
+{
+  "business_name": "FlowRight Plumbing",
+  "phone": "(555) 123-4567",
+  "email": "info@flowrightplumbing.com",
+  "address": "123 Pipeline Rd, Your City, ST 00000",
+  "tagline": "Fast, reliable plumbing for homes and businesses. We fix it right the first time — guaranteed.",
+  "hours": {
+    "weekday": "7:00 AM – 7:00 PM",
+    "saturday": "8:00 AM – 5:00 PM"
+  },
+  "services": [
+    {
+      "name": "Drain Cleaning",
+      "desc": "Clogged drains cleared fast. Kitchen, bathroom, main line — we handle it all with professional equipment.",
+      "icon": "🚿"
+    },
+    {
+      "name": "Pipe Repair & Replace",
+      "desc": "Burst pipes, leaks, and old corroded lines repaired or fully replaced with quality materials.",
+      "icon": "🔧"
+    },
+    {
+      "name": "Toilet & Fixture Install",
+      "desc": "New toilets, faucets, sinks, and fixtures installed properly the first time. No drips, no leaks.",
+      "icon": "🚽"
+    },
+    {
+      "name": "Water Heater Service",
+      "desc": "Hot water heater repair, replacement, and tankless unit installation for endless hot water.",
+      "icon": "💧"
+    },
+    {
+      "name": "Whole Home Inspection",
+      "desc": "Complete plumbing inspection for buyers, sellers, or anyone who wants peace of mind.",
+      "icon": "🏠"
+    },
+    {
+      "name": "Emergency Plumbing",
+      "desc": "Available 24/7 for emergencies. Burst pipes, flooding, sewage backups — we respond fast.",
+      "icon": "⚡"
+    }
+  ]
+}

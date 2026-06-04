@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-cms="business_name">FlowRight Plumbing</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --blue: #1a3a5c;
+  --blue-light: #2563a8;
+  --orange: #e8650a;
+  --white: #ffffff;
+  --light: #f4f7fb;
+  --gray: #6b7a8d;
+  --dark: #0f1f30;
+}
+
+body { font-family: 'Lato', sans-serif; background: var(--white); color: var(--dark); }
+
+/* NAV */
+nav {
+  background: var(--dark);
+  padding: 0 40px;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+}
+
+.nav-logo {
+  font-family: 'Oswald', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.nav-logo span { color: var(--orange); }
+
+.nav-phone {
+  background: var(--orange);
+  color: var(--white);
+  padding: 10px 24px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.nav-phone:hover { background: #d45a08; }
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, var(--dark) 0%, var(--blue) 100%);
+  padding: 80px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle at 20% 50%, rgba(37,99,168,0.3) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 50%, rgba(232,101,10,0.1) 0%, transparent 50%);
+}
+
+.hero-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(232,101,10,0.15);
+  border: 1px solid rgba(232,101,10,0.4);
+  color: var(--orange);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  margin-bottom: 24px;
+  font-family: 'Oswald', sans-serif;
+}
+
+.hero h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(40px, 6vw, 68px);
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+
+.hero h1 span { color: var(--orange); }
+
+.hero p {
+  font-size: 17px;
+  color: rgba(255,255,255,0.6);
+  font-weight: 300;
+  line-height: 1.75;
+  margin-bottom: 36px;
+}
+
+.hero-cta {
+  display: inline-block;
+  background: var(--orange);
+  color: var(--white);
+  padding: 16px 40px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.hero-cta:hover { background: #d45a08; transform: translateY(-2px); }
+
+/* STATS */
+.stats {
+  background: var(--blue);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.stat {
+  padding: 28px;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+.stat:last-child { border-right: none; }
+
+.stat-num {
+  font-family: 'Oswald', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--orange);
+}
+
+.stat-label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 4px;
+}
+
+/* SERVICES */
+.services {
+  padding: 80px 40px;
+  background: var(--light);
+}
+
+.section-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(28px, 3.5vw, 42px);
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 48px;
+  letter-spacing: -0.01em;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background: var(--white);
+  padding: 36px 28px;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s;
+}
+.service-card:hover {
+  border-bottom-color: var(--orange);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+
+.service-icon { font-size: 36px; margin-bottom: 16px; }
+
+.service-name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 10px;
+  letter-spacing: 0.02em;
+}
+
+.service-desc {
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* HOURS & CONTACT */
+.info {
+  padding: 80px 40px;
+  background: var(--white);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.hours-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 28px;
+  letter-spacing: -0.01em;
+}
+
+.hours-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  font-size: 15px;
+}
+
+.hours-day { font-weight: 700; color: var(--dark); }
+.hours-time { color: var(--gray); }
+.hours-closed { color: #ccc; font-style: italic; }
+
+.contact-card {
+  background: var(--blue);
+  padding: 40px;
+  display: flex; flex-direction: column; justify-content: center;
+  gap: 24px;
+}
+
+.contact-item { display: flex; align-items: flex-start; gap: 16px; }
+
+.contact-icon {
+  width: 40px; height: 40px;
+  background: rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+
+.contact-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 4px;
+}
+
+.contact-value {
+  font-family: 'Oswald', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.contact-value a { color: var(--orange); text-decoration: none; }
+.contact-value a:hover { text-decoration: underline; }
+
+/* MAP */
+.map-section { background: var(--light); }
+
+.map-section iframe {
+  width: 100%;
+  height: 400px;
+  border: none;
+  display: block;
+}
+
+/* CTA BANNER */
+.cta-banner {
+  background: var(--orange);
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.cta-banner h2 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 44px);
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.cta-banner p { color: rgba(255,255,255,0.75); font-size: 16px; margin-bottom: 28px; font-weight: 300; }
+
+.cta-phone {
+  display: inline-block;
+  background: var(--white);
+  color: var(--orange);
+  padding: 16px 48px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.cta-phone:hover { background: var(--dark); color: var(--white); transform: translateY(-2px); }
+
+/* FOOTER */
+footer {
+  background: var(--dark);
+  padding: 32px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+}
+
+.footer-logo {
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.footer-logo span { color: var(--orange); }
+
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); letter-spacing: 0.04em; }
+
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .hero { padding: 60px 20px; }
+  .stats { grid-template-columns: 1fr; }
+  .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .services { padding: 60px 20px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .info { grid-template-columns: 1fr; padding: 60px 20px; gap: 40px; }
+  .cta-banner { padding: 40px 20px; }
+  footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo" data-cms="business_name">Flow<span>Right</span> Plumbing</div>
+  <a href="tel:5551234567" class="nav-phone" data-cms="phone">☎ (555) 123-4567</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Licensed & Insured — Serving the Metro Area</div>
+    <h1 data-cms="business_name">Flow<span>Right</span><br>Plumbing</h1>
+    <p data-cms="tagline">Fast, reliable plumbing for homes and businesses. We fix it right the first time — guaranteed.</p>
+    <a href="tel:5551234567" class="hero-cta" data-cms="phone">Call Now — (555) 123-4567</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Emergency Service</div></div>
+  <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Years Experience</div></div>
+  <div class="stat"><div class="stat-num">5★</div><div class="stat-label">Google Rating</div></div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-label">What We Fix</div>
+    <div class="section-title">Our Services</div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🚿</div>
+        <div class="service-name" data-cms="service_1_name">Drain Cleaning</div>
+        <p class="service-desc" data-cms="service_1_desc">Clogged drains cleared fast. Kitchen, bathroom, main line — we handle it all with professional equipment.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔧</div>
+        <div class="service-name" data-cms="service_2_name">Pipe Repair & Replace</div>
+        <p class="service-desc" data-cms="service_2_desc">Burst pipes, leaks, and old corroded lines repaired or fully replaced with quality materials.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚽</div>
+        <div class="service-name" data-cms="service_3_name">Toilet & Fixture Install</div>
+        <p class="service-desc" data-cms="service_3_desc">New toilets, faucets, sinks, and fixtures installed properly the first time. No drips, no leaks.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💧</div>
+        <div class="service-name" data-cms="service_4_name">Water Heater Service</div>
+        <p class="service-desc" data-cms="service_4_desc">Hot water heater repair, replacement, and tankless unit installation for endless hot water.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏠</div>
+        <div class="service-name" data-cms="service_5_name">Whole Home Inspection</div>
+        <p class="service-desc" data-cms="service_5_desc">Complete plumbing inspection for buyers, sellers, or anyone who wants peace of mind.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <div class="service-name" data-cms="service_6_name">Emergency Plumbing</div>
+        <p class="service-desc" data-cms="service_6_desc">Available 24/7 for emergencies. Burst pipes, flooding, sewage backups — we respond fast.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS & CONTACT -->
+<section style="padding:80px 40px; background:var(--white);">
+  <div class="info">
+    <div>
+      <div class="hours-title">Hours of Operation</div>
+      <div class="hours-row"><span class="hours-day">Monday – Friday</span><span class="hours-time" data-cms="hours_weekday">7:00 AM – 7:00 PM</span></div>
+      <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time" data-cms="hours_saturday">8:00 AM – 5:00 PM</span></div>
+      <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-closed">Emergency Only</span></div>
+      <div class="hours-row"><span class="hours-day">Holidays</span><span class="hours-time">Emergency Available</span></div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-label">Call or Text</div>
+          <div class="contact-value"><a href="tel:5551234567" data-cms="phone">(555) 123-4567</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-label">Location</div>
+          <div class="contact-value" data-cms="address">123 Pipeline Rd, Your City, ST 00000</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value" data-cms="email">info@flowrightplumbing.com</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<div class="map-section">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.0!2d-86.8!3d35.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDM2JzAwLjAiTiA4NsKwNDgnMDAuMCJX!5e0!3m2!1sen!2sus!4v1234567890"
+    allowfullscreen="" loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <h2>Pipe Emergency? We're Ready.</h2>
+  <p>Call now — we pick up 24/7 for emergencies</p>
+  <a href="tel:5551234567" class="cta-phone" data-cms="phone">(555) 123-4567</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo" data-cms="business_name">Flow<span>Right</span> Plumbing</div>
+  <div class="footer-copy">© 2026 FlowRight Plumbing. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
